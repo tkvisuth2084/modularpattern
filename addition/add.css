@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+}
+
+.main-row{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 4% 5%;
+}
+
+.side-panel{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rule{
+    font-family: "Roboto Mono", monospace;
+    font-size: calc(2px + 0.8vw);
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 0 5%;
+}
+
+div.rule{
+    display: flex;
+    flex-direction: row;
+}
+
+div.rule1{
+    padding-right: 5%;
+}
+
+div.game-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4%;
+    padding-bottom: 5%;
+}
+
+div.game {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 500px;
+    height:500px;
+}
+
+.game-cell {
+    width: 90px;
+    height: 90px;
+    border: 0.5px solid black;
+    box-sizing: border-box;
+    display: grid; /* Enable stacking */
+    place-items: center; /* Center images */
+}
+
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.game-cell img{
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/*.patt-img0, .patt-img1, .patt-img2, .patt-img3{*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    object-fit: contain;*/
+/*}*/
+
+.rule1 img, .rule2 img, .rule3 img, .rule4 img{
+    width: 6%;
+}
+.hide{
+    display: none;
+}
+
+@media print {
+    /* 1. Hide everything by default */
+    body * {
+        visibility: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 2. Only show the game board and its children */
+    .game-container, .game-container * {
+        visibility: visible;
+    }
+
+    /* 3. Position the game board at the very top-left of the paper */
+    .game-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 4. Ensure images actually show up (browsers often block them to save ink) */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
+
+.game-cell {
+    position: relative;
+}
+
+
+.game-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20%;
+    padding-top: 4%;
+    padding-bottom: 5%;
+}
+
+/* remove padding-top and padding-bottom from game-container since wrapper handles it */
+div.game-container {
+    padding-top: 0;
+    padding-bottom: 5%;
+}
+
+.info-panel, .remainders {
+    font-family: "Roboto Mono", monospace;
+    font-size: calc(2px + 0.8vw);
+    border: 1px solid black;
+    padding: 20px;
+    line-height: 2;
+    width: 50%;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.controls button{
+    background-color: white;
+    border: 1px solid black;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Roboto Mono", monospace;
+    height: 48px;
+    font-weight: bold;
+    margin-right: 10%;
+}
+
+.controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-left: 10%;
+}
+
+
+
+.info-function {
+    color: black;
+    font-size: calc(10px + 0.8vw);
+    font-weight: bold;
+}
+
+
+.info-calc {
+    font-size: calc(6px + 1.3vw);
+    color: darkblue;
+
+}
+
+
+.cell-mathBehind {
+    display: none;
+    position: absolute;
+    bottom: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: black;
+    border: 1px solid black;
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.cell-mathBehind.visible {
+    display: block;
+}

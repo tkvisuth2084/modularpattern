@@ -1,0 +1,250 @@
+* { margin: 0; box-sizing: border-box; }
+
+body {
+    background-color: whitesmoke;
+    font-family: "Roboto Mono", monospace;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, #d4c5bc 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Layout ── */
+.main-row {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 100px 5%;
+}
+
+/* ── Back link ── */
+.back {
+    position: fixed;
+    top: 20px;
+    left: 24px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #999;
+    text-decoration: none;
+    z-index: 10;
+}
+.back:hover { color: #111; }
+
+/* ── Side panel ── */
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 220px;
+    max-width: 240px;
+    padding-top: 8px;
+}
+
+.info-panel,
+.remainders,
+.color-picker-panel {
+    font-size: 12px;
+    border: 2px solid #111;
+    padding: 16px;
+    line-height: 2;
+    background: white;
+}
+
+.info-function {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.info-coords { color: #888; font-size: 11px; }
+.info-calc   { color: #e07060; font-size: 14px; font-weight: 600; }
+.info-calc2  { color: #111; font-size: 11px; }
+
+.remainders h2,
+.color-picker-panel h2 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+
+.remainders p { font-size: 11px; line-height: 1.8; color: #555; }
+
+/* ── Color picker ── */
+.color-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.swatch {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #111;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.swatch:hover { transform: scale(1.2); }
+.swatch.active { outline: 2px solid #e07060; outline-offset: 2px; }
+
+.custom-color-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #888;
+    line-height: 1;
+}
+
+input[type="color"] {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #111;
+    border-radius: 3px;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+}
+
+/* ── Game container ── */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: min(500px, 80vw);
+    height: min(500px, 80vw);
+    border: 2px solid #111;
+}
+
+.game-cell {
+    border: 0.5px solid #ccc;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.game-cell img {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hide { display: none; }
+
+/* ── Tooltip ── */
+.cell-mathBehind {
+    display: none;
+    position: absolute;
+    bottom: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: black;
+    font-family: "Roboto Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+    border: 1px solid #111;
+}
+.cell-mathBehind.visible { display: block; }
+
+/* ── Controls ── */
+.controls {
+    display: flex;
+    gap: 12px;
+}
+
+.controls button {
+    background-color: #ffdeda;
+    border: 2px solid #111;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto Mono", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    height: 40px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.controls button::after {
+    background-color: #111;
+    border-radius: 4px;
+    content: "";
+    display: block;
+    height: 40px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(5px, 5px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+}
+
+.controls button:hover::after { transform: translate(0, 0); }
+.controls button:active { background-color: #ffdeda; }
+
+/* ── Rule legend ── */
+.rule {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    font-size: 12px;
+    border-top: 2px solid #111;
+    padding: 20px 5%;
+    background: white;
+}
+
+.rule p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 2;
+}
+
+.rule img { width: 20px; height: 20px; object-fit: contain; }
+
+/* ── Print ── */
+@media print {
+    body * { visibility: hidden; margin: 0; padding: 0; }
+    .game-container, .game-container * { visibility: visible; }
+    .game-container {
+        position: absolute; left: 0; top: 0;
+        width: 100%; display: flex; justify-content: center;
+    }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}
