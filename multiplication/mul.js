@@ -33,42 +33,42 @@ const allImagesS = document.querySelectorAll(".patt-imgs");
 document.addEventListener('keydown', function(event) {
 
     // Check if the user pressed the '1' key
-    if (event.key === '1') {
+    if (event.key === '0') {
 
         allImages0.forEach(image => {
             image.classList.toggle('hide');
         });
     }
     // You can add more keys here!
-    if (event.key === '2') {
+    if (event.key === '1') {
 
         allImages1.forEach(image => {
             image.classList.toggle('hide');
         });
     }
 
-    if (event.key === '3') {
+    if (event.key === '2') {
 
         allImages2.forEach(image => {
             image.classList.toggle('hide');
         });
     }
 
-    if (event.key === '4') {
+    if (event.key === '3') {
 
         allImages4.forEach(image => {
             image.classList.toggle('hide');
         });
     }
 
-    if (event.key === '5') {
+    if (event.key === '4') {
 
         allImages5.forEach(image => {
             image.classList.toggle('hide');
         });
     }
 
-    if (event.key === '6') {
+    if (event.key === '5') {
 
         allImages6.forEach(image => {
             image.classList.toggle('hide');
