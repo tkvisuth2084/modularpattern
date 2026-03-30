@@ -7,10 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="distance.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        .size-btn{width:32px!important;height:32px!important;padding:0!important;border:2px solid #111!important;border-radius:4px!important;background:#fee6e3!important;font-size:20px!important;font-weight:700!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 32px!important;}
+        .size-btn:hover{background:#fdd5d0!important;} .size-btn::after{display:none!important;}
+        #size-label{font-family:"Roboto Mono",monospace;font-size:13px;font-weight:700;color:#333;min-width:52px;text-align:center;}
+        .size-controls{display:flex;align-items:center;gap:10px;}
+        .grid-size-panel{font-size:12px;border:2px solid #111;padding:16px;background:white;}
+        .grid-size-panel h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;}
+    </style>
 </head>
 <body>
 <a class="back" href="../index.html">← back</a>
-
 <main>
     <div class="main-row">
         <div class="side-panel">
@@ -37,109 +44,42 @@
                     <span>custom</span>
                 </div>
             </div>
+            <div class="grid-size-panel">
+                <h2>Grid Size</h2>
+                <div class="size-controls">
+                    <button class="size-btn" id="size-down">−</button>
+                    <span id="size-label">6 × 6</span>
+                    <button class="size-btn" id="size-up">+</button>
+                </div>
+            </div>
             <div class="remainders">
                 <h2>Remainder Rules</h2>
                 <p>Keys toggle image layers</p>
-                <p>R=0 → keys 0, 3, a, d</p>
-                <p>R=1 → keys 1, 4, b, e</p>
-                <p>R=2 → keys 2, 5, c, f</p>
-                <p>R=3 → keys 2, 5, c, f</p>
+                <p>R=0 → 1,5,a,e,i,m,q</p>
+                <p>R=1 → 2,6,b,f,j,n,r</p>
+                <p>R=2 → 3,7,c,g,k,o,s</p>
+                <p>R=3 → 4,8,d,h,l,p,t</p>
+                <p>Delete/Backspace = undo</p>
             </div>
         </div>
-
         <div class="game-container">
-            <div class="game">
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/2.png" class="patt-img2 hide"><img src="../src/6.png" class="patt-img6 hide"><img src="../src/c.png" class="patt-imgc hide"><img src="../src/g.png" class="patt-imgg hide"><img src="../src/k.png" class="patt-imgk hide"><img src="../src/o.png" class="patt-imgo hide"><img src="../src/s.png" class="patt-imgs hide"></div>
-                <div class="game-cell"><img src="../src/2.png" class="patt-img2 hide"><img src="../src/6.png" class="patt-img6 hide"><img src="../src/c.png" class="patt-imgc hide"><img src="../src/g.png" class="patt-imgg hide"><img src="../src/k.png" class="patt-imgk hide"><img src="../src/o.png" class="patt-imgo hide"><img src="../src/s.png" class="patt-imgs hide"></div>
-                <div class="game-cell"><img src="../src/2.png" class="patt-img2 hide"><img src="../src/6.png" class="patt-img6 hide"><img src="../src/c.png" class="patt-imgc hide"><img src="../src/g.png" class="patt-imgg hide"><img src="../src/k.png" class="patt-imgk hide"><img src="../src/o.png" class="patt-imgo hide"><img src="../src/s.png" class="patt-imgs hide"></div>
-                <div class="game-cell"><img src="../src/0.png" class="patt-img0 hide"><img src="../src/4.png" class="patt-img4 hide"><img src="../src/a.png" class="patt-imga hide"><img src="../src/e.png" class="patt-imge hide"><img src="../src/i.png" class="patt-imgi hide"><img src="../src/m.png" class="patt-imgm hide"><img src="../src/q.png" class="patt-imgq hide"></div>
-                <div class="game-cell"><img src="../src/0.png" class="patt-img0 hide"><img src="../src/4.png" class="patt-img4 hide"><img src="../src/a.png" class="patt-imga hide"><img src="../src/e.png" class="patt-imge hide"><img src="../src/i.png" class="patt-imgi hide"><img src="../src/m.png" class="patt-imgm hide"><img src="../src/q.png" class="patt-imgq hide"></div>
-                <div class="game-cell"><img src="../src/0.png" class="patt-img0 hide"><img src="../src/4.png" class="patt-img4 hide"><img src="../src/a.png" class="patt-imga hide"><img src="../src/e.png" class="patt-imge hide"><img src="../src/i.png" class="patt-imgi hide"><img src="../src/m.png" class="patt-imgm hide"><img src="../src/q.png" class="patt-imgq hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/2.png" class="patt-img2 hide"><img src="../src/6.png" class="patt-img6 hide"><img src="../src/c.png" class="patt-imgc hide"><img src="../src/g.png" class="patt-imgg hide"><img src="../src/k.png" class="patt-imgk hide"><img src="../src/o.png" class="patt-imgo hide"><img src="../src/s.png" class="patt-imgs hide"></div>
-                <div class="game-cell"><img src="../src/3.png" class="patt-img3 hide"><img src="../src/7.png" class="patt-img7 hide"><img src="../src/d.png" class="patt-imgd hide"><img src="../src/h.png" class="patt-imgh hide"><img src="../src/l.png" class="patt-imgl hide"><img src="../src/p.png" class="patt-imgp hide"><img src="../src/t.png" class="patt-imgt hide"></div>
-                <div class="game-cell"><img src="../src/3.png" class="patt-img3 hide"><img src="../src/7.png" class="patt-img7 hide"><img src="../src/d.png" class="patt-imgd hide"><img src="../src/h.png" class="patt-imgh hide"><img src="../src/l.png" class="patt-imgl hide"><img src="../src/p.png" class="patt-imgp hide"><img src="../src/t.png" class="patt-imgt hide"></div>
-                <div class="game-cell"><img src="../src/3.png" class="patt-img3 hide"><img src="../src/7.png" class="patt-img7 hide"><img src="../src/d.png" class="patt-imgd hide"><img src="../src/h.png" class="patt-imgh hide"><img src="../src/l.png" class="patt-imgl hide"><img src="../src/p.png" class="patt-imgp hide"><img src="../src/t.png" class="patt-imgt hide"></div>
-                <div class="game-cell"><img src="../src/0.png" class="patt-img0 hide"><img src="../src/4.png" class="patt-img4 hide"><img src="../src/a.png" class="patt-imga hide"><img src="../src/e.png" class="patt-imge hide"><img src="../src/i.png" class="patt-imgi hide"><img src="../src/m.png" class="patt-imgm hide"><img src="../src/q.png" class="patt-imgq hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/2.png" class="patt-img2 hide"><img src="../src/6.png" class="patt-img6 hide"><img src="../src/c.png" class="patt-imgc hide"><img src="../src/g.png" class="patt-imgg hide"><img src="../src/k.png" class="patt-imgk hide"><img src="../src/o.png" class="patt-imgo hide"><img src="../src/s.png" class="patt-imgs hide"></div>
-                <div class="game-cell"><img src="../src/2.png" class="patt-img2 hide"><img src="../src/6.png" class="patt-img6 hide"><img src="../src/c.png" class="patt-imgc hide"><img src="../src/g.png" class="patt-imgg hide"><img src="../src/k.png" class="patt-imgk hide"><img src="../src/o.png" class="patt-imgo hide"><img src="../src/s.png" class="patt-imgs hide"></div>
-                <div class="game-cell"><img src="../src/2.png" class="patt-img2 hide"><img src="../src/6.png" class="patt-img6 hide"><img src="../src/c.png" class="patt-imgc hide"><img src="../src/g.png" class="patt-imgg hide"><img src="../src/k.png" class="patt-imgk hide"><img src="../src/o.png" class="patt-imgo hide"><img src="../src/s.png" class="patt-imgs hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/0.png" class="patt-img0 hide"><img src="../src/4.png" class="patt-img4 hide"><img src="../src/a.png" class="patt-imga hide"><img src="../src/e.png" class="patt-imge hide"><img src="../src/i.png" class="patt-imgi hide"><img src="../src/m.png" class="patt-imgm hide"><img src="../src/q.png" class="patt-imgq hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/2.png" class="patt-img2 hide"><img src="../src/6.png" class="patt-img6 hide"><img src="../src/c.png" class="patt-imgc hide"><img src="../src/g.png" class="patt-imgg hide"><img src="../src/k.png" class="patt-imgk hide"><img src="../src/o.png" class="patt-imgo hide"><img src="../src/s.png" class="patt-imgs hide"></div>
-                <div class="game-cell"><img src="../src/3.png" class="patt-img3 hide"><img src="../src/7.png" class="patt-img7 hide"><img src="../src/d.png" class="patt-imgd hide"><img src="../src/h.png" class="patt-imgh hide"><img src="../src/l.png" class="patt-imgl hide"><img src="../src/p.png" class="patt-imgp hide"><img src="../src/t.png" class="patt-imgt hide"></div>
-                <div class="game-cell"><img src="../src/0.png" class="patt-img0 hide"><img src="../src/4.png" class="patt-img4 hide"><img src="../src/a.png" class="patt-imga hide"><img src="../src/e.png" class="patt-imge hide"><img src="../src/i.png" class="patt-imgi hide"><img src="../src/m.png" class="patt-imgm hide"><img src="../src/q.png" class="patt-imgq hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/0.png" class="patt-img0 hide"><img src="../src/4.png" class="patt-img4 hide"><img src="../src/a.png" class="patt-imga hide"><img src="../src/e.png" class="patt-imge hide"><img src="../src/i.png" class="patt-imgi hide"><img src="../src/m.png" class="patt-imgm hide"><img src="../src/q.png" class="patt-imgq hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-                <div class="game-cell"><img src="../src/2.png" class="patt-img2 hide"><img src="../src/6.png" class="patt-img6 hide"><img src="../src/c.png" class="patt-imgc hide"><img src="../src/g.png" class="patt-imgg hide"><img src="../src/k.png" class="patt-imgk hide"><img src="../src/o.png" class="patt-imgo hide"><img src="../src/s.png" class="patt-imgs hide"></div>
-                <div class="game-cell"><img src="../src/3.png" class="patt-img3 hide"><img src="../src/7.png" class="patt-img7 hide"><img src="../src/d.png" class="patt-imgd hide"><img src="../src/h.png" class="patt-imgh hide"><img src="../src/l.png" class="patt-imgl hide"><img src="../src/p.png" class="patt-imgp hide"><img src="../src/t.png" class="patt-imgt hide"></div>
-                <div class="game-cell"><img src="../src/0.png" class="patt-img0 hide"><img src="../src/4.png" class="patt-img4 hide"><img src="../src/a.png" class="patt-imga hide"><img src="../src/e.png" class="patt-imge hide"><img src="../src/i.png" class="patt-imgi hide"><img src="../src/m.png" class="patt-imgm hide"><img src="../src/q.png" class="patt-imgq hide"></div>
-                <div class="game-cell"><img src="../src/1.png" class="patt-img1 hide"><img src="../src/5.png" class="patt-img5 hide"><img src="../src/b.png" class="patt-imgb hide"><img src="../src/f.png" class="patt-imgf hide"><img src="../src/j.png" class="patt-imgj hide"><img src="../src/n.png" class="patt-imgn hide"><img src="../src/r.png" class="patt-imgr hide"></div>
-            </div>
-
+            <div class="game"></div>
             <div class="controls">
                 <button onclick="window.print()">Print</button>
                 <button id="download-btn">Save as PNG</button>
             </div>
         </div>
     </div>
-
     <div class="rule">
-        <div class="rule1">
-            <p>1 = <img src="../src/0.png"></p>
-            <p>2 = <img src="../src/1.png"></p>
-            <p>3 = <img src="../src/2.png"></p>
-            <p>4 = <img src="../src/3.png"></p>
-        </div>
-        <div class="rule2">
-            <p>5 = <img src="../src/4.png"></p>
-            <p>6 = <img src="../src/5.png"></p>
-            <p>7 = <img src="../src/6.png"></p>
-            <p>8 = <img src="../src/7.png"></p>
-        </div>
-        <div class="rule3">
-            <p>a = <img src="../src/a.png"></p>
-            <p>b = <img src="../src/b.png"></p>
-            <p>c = <img src="../src/c.png"></p>
-            <p>d = <img src="../src/d.png"></p>
-        </div>
-        <div class="rule4">
-            <p>e = <img src="../src/e.png"></p>
-            <p>f = <img src="../src/f.png"></p>
-            <p>g = <img src="../src/g.png"></p>
-            <p>h = <img src="../src/h.png"></p>
-        </div>
-        <div class="rule5">
-            <p>i = <img src="../src/i.png"></p>
-            <p>j = <img src="../src/j.png"></p>
-            <p>k = <img src="../src/k.png"></p>
-            <p>l = <img src="../src/l.png"></p>
-        </div>
-        <div class="rule6">
-            <p>m = <img src="../src/m.png"></p>
-            <p>n = <img src="../src/n.png"></p>
-            <p>o = <img src="../src/o.png"></p>
-            <p>p = <img src="../src/p.png"></p>
-        </div>
-        <div class="rule6">
-            <p>q = <img src="../src/q.png"></p>
-            <p>r = <img src="../src/r.png"></p>
-            <p>s = <img src="../src/s.png"></p>
-            <p>t = <img src="../src/t.png"></p>
-        </div>
+        <div class="rule1"><p>1=<img src="../src/0.png"></p><p>2=<img src="../src/1.png"></p><p>3=<img src="../src/2.png"></p><p>4=<img src="../src/3.png"></p></div>
+        <div class="rule2"><p>5=<img src="../src/4.png"></p><p>6=<img src="../src/5.png"></p><p>7=<img src="../src/6.png"></p><p>8=<img src="../src/7.png"></p></div>
+        <div class="rule3"><p>a=<img src="../src/a.png"></p><p>b=<img src="../src/b.png"></p><p>c=<img src="../src/c.png"></p><p>d=<img src="../src/d.png"></p></div>
+        <div class="rule4"><p>e=<img src="../src/e.png"></p><p>f=<img src="../src/f.png"></p><p>g=<img src="../src/g.png"></p><p>h=<img src="../src/h.png"></p></div>
+        <div class="rule5"><p>i=<img src="../src/i.png"></p><p>j=<img src="../src/j.png"></p><p>k=<img src="../src/k.png"></p><p>l=<img src="../src/l.png"></p></div>
+        <div class="rule6"><p>m=<img src="../src/m.png"></p><p>n=<img src="../src/n.png"></p><p>o=<img src="../src/o.png"></p><p>p=<img src="../src/p.png"></p></div>
+        <div class="rule7"><p>q=<img src="../src/q.png"></p><p>r=<img src="../src/r.png"></p><p>s=<img src="../src/s.png"></p><p>t=<img src="../src/t.png"></p></div>
     </div>
 </main>
-
 <script src="distance.js"></script>
 <script src="distance-camera.js"></script>
 </body>

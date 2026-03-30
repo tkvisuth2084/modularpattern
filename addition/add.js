@@ -1,261 +1,172 @@
+// ── add.js  ─  (x + y) % 3  ─────────────────────────────────────────────────
+// Dynamically builds the grid for any size N (4–15).
+// Image sets cycle through 7 "palette slots" as the user assigns images via keys.
 
-const allImages0 = document.querySelectorAll(".patt-img0");
-const allImages1 = document.querySelectorAll(".patt-img1");
-const allImages2 = document.querySelectorAll(".patt-img2");
+// ── Image slot definitions ────────────────────────────────────────────────────
+// Each remainder (0, 1, 2) maps to a list of 7 slots.
+// Slot index advances each time the user presses a new key.
+const SLOT_FILES = {
+    0: ['0','4','a','e','i','m','q'],
+    1: ['1','5','b','f','j','n','r'],
+    2: ['2','6','c','g','k','o','s'],
+};
 
+// Key → slot index (cycles 0–6)
+const KEY_TO_SLOT = {
+    '0':0, '3':1, 'a':2, 'd':3, 'g':4, 'j':5, 'm':6,   // remainder 0
+    '1':0, '4':1, 'b':2, 'e':3, 'h':4, 'k':5, 'n':6,   // remainder 1
+    '2':0, '5':1, 'c':2, 'f':3, 'i':4, 'l':5, 'o':6,   // remainder 2
+};
 
-const allImages4 = document.querySelectorAll(".patt-img4");
-const allImages5 = document.querySelectorAll(".patt-img5");
-const allImages6 = document.querySelectorAll(".patt-img6");
+// Which remainder does each key belong to?
+const KEY_TO_REM = {
+    '0':0,'3':0,'a':0,'d':0,'g':0,'j':0,'m':0,
+    '1':1,'4':1,'b':1,'e':1,'h':1,'k':1,'n':1,
+    '2':2,'5':2,'c':2,'f':2,'i':2,'l':2,'o':2,
+};
 
-const allImagesA = document.querySelectorAll(".patt-imga");
-const allImagesB = document.querySelectorAll(".patt-imgb");
-const allImagesC = document.querySelectorAll(".patt-imgc");
-const allImagesD = document.querySelectorAll(".patt-imgd");
+// ── State ─────────────────────────────────────────────────────────────────────
+let gridSize = 6;          // current N
+const GRID_PX = 500;       // fixed pixel size of the game board
 
-const allImagesE = document.querySelectorAll(".patt-imge");
-const allImagesF = document.querySelectorAll(".patt-imgf");
-const allImagesG = document.querySelectorAll(".patt-imgg");
+// visibleSlot[rem] = which slot index is currently shown (-1 = none)
+const visibleSlot = { 0: -1, 1: -1, 2: -1 };
 
-const allImagesI = document.querySelectorAll(".patt-imgi");
-const allImagesJ = document.querySelectorAll(".patt-imgj");
-const allImagesK = document.querySelectorAll(".patt-imgk");
+// ── Build / rebuild the grid ──────────────────────────────────────────────────
+function buildGrid(n) {
+    gridSize = n;
+    const game = document.querySelector('.game');
+    game.innerHTML = '';
+    game.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
+    game.style.gridTemplateRows    = `repeat(${n}, 1fr)`;
 
-const allImagesM = document.querySelectorAll(".patt-imgm");
-const allImagesN = document.querySelectorAll(".patt-imgn");
-const allImagesO = document.querySelectorAll(".patt-imgo");
+    for (let row = 0; row < n; row++) {
+        const y = n - row;          // y counts from bottom (1 = bottom row)
+        for (let col = 0; col < n; col++) {
+            const x = col + 1;
+            const rem = (x + y) % 3;
 
-const allImagesQ = document.querySelectorAll(".patt-imgq");
-const allImagesR = document.querySelectorAll(".patt-imgr");
-const allImagesS = document.querySelectorAll(".patt-imgs");
+            const cell = document.createElement('div');
+            cell.className = 'game-cell';
+            cell.dataset.x = x;
+            cell.dataset.y = y;
+            cell.dataset.rem = rem;
 
+            // Build one <img> per slot for this remainder
+            SLOT_FILES[rem].forEach((file, slotIdx) => {
+                const img = document.createElement('img');
+                img.src = `../src/${file}.png`;
+                img.dataset.rem  = rem;
+                img.dataset.slot = slotIdx;
+                // Show only if this slot is currently visible
+                if (visibleSlot[rem] !== slotIdx) img.classList.add('hide');
+                cell.appendChild(img);
+            });
 
-document.addEventListener('keydown', function(event) {
+            // Tooltip
+            const tip = document.createElement('div');
+            tip.className = 'cell-mathBehind';
+            tip.textContent = `(${x},${y})`;
+            cell.appendChild(tip);
 
-    // Check if the user pressed the '1' key
-    if (event.key === '0') {
+            cell.addEventListener('mouseenter', onCellEnter);
+            cell.addEventListener('mouseleave', onCellLeave);
 
-        allImages0.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-    // You can add more keys here!
-    if (event.key === '1') {
-
-        allImages1.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === '2') {
-
-        allImages2.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-
-    if (event.key === '3') {
-
-        allImages4.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === '4') {
-
-        allImages5.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === '5') {
-
-        allImages6.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'a' || event.key === 'A') {
-
-        allImagesA.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'b' || event.key === 'B') {
-
-        allImagesB.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'c' || event.key === 'C') {
-
-        allImagesC.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-
-    if (event.key === 'd' || event.key === 'D') {
-
-        allImagesE.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'e' || event.key === 'E') {
-
-        allImagesF.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'f' || event.key === 'F') {
-
-        allImagesG.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'g' || event.key === 'G') {
-
-        allImagesI.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'h' || event.key === 'H') {
-
-        allImagesJ.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'i' || event.key === 'I') {
-
-        allImagesK.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-
-    if (event.key === 'j' || event.key === 'J') {
-
-        allImagesM.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-
-    if (event.key === 'k' || event.key === 'K') {
-
-        allImagesN.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'l' || event.key === 'L') {
-
-        allImagesO.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'm' || event.key === 'M') {
-
-        allImagesQ.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'n' || event.key === 'N') {
-
-        allImagesR.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-    if (event.key === 'o' || event.key === 'O') {
-
-        allImagesS.forEach(image => {
-            image.classList.toggle('hide');
-        });
-    }
-
-
-});
-
-document.getElementById('download-btn').addEventListener('click', function() {
-    const gameBoard = document.querySelector('.game');
-
-    // We use html2canvas to "capture" the grid
-    html2canvas(gameBoard).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'my-arithmetic-pattern.png';
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-    });
-});
-
-const cells = document.querySelectorAll('.game-cell');
-const totalRows = 6;
-const infoCalc = document.querySelector('.info-calc');
-const infoCalc2 = document.querySelector('.info-calc2');
-
-cells.forEach((cell, index) => {
-    const x = (index % 6) + 1;
-    const y = (totalRows) - Math.floor((index / 6));
-
-    // Create tooltip
-    const mathBehind = document.createElement('div');
-    mathBehind.classList.add('cell-mathBehind');
-    mathBehind.textContent = `(x,y) = (${x},${y})`;
-    cell.appendChild(mathBehind);
-
-    cell.addEventListener('mouseenter', () => {
-        const hasVisible = Array.from(cell.querySelectorAll('img')).some(
-            img => !img.classList.contains('hide')
-        );
-        if (hasVisible) {
-            // Show tooltip
-            mathBehind.classList.add('visible');
-            // Update side panel
-            infoCalc.textContent = `(${x} + ${y}) / 3 = ${Math.floor((x + y) / 3)} R ${(x + y) % 3}`;
-            infoCalc2.textContent =`Remainder = ${(x + y) % 3}`;
+            game.appendChild(cell);
         }
-    });
+    }
 
-    cell.addEventListener('mouseleave', () => {
-        mathBehind.classList.remove('visible');
-    });
-});
-
-const game = document.querySelector('.game');
-const swatches = document.querySelectorAll('.swatch');
-const customColor = document.getElementById('custom-color');
-
-function setGridLineColor(color) {
-    game.style.borderColor = color;
-    document.querySelectorAll('.game-cell').forEach(cell => {
-        cell.style.borderColor = color;
-    });
+    // Re-apply current grid line colour
+    applyGridColor(currentGridColor);
+    updateSizeLabel();
 }
 
-swatches.forEach(swatch => {
+// ── Cell hover ────────────────────────────────────────────────────────────────
+const infoCalc  = document.querySelector('.info-calc');
+const infoCalc2 = document.querySelector('.info-calc2');
+
+function onCellEnter(e) {
+    const cell = e.currentTarget;
+    const x = +cell.dataset.x, y = +cell.dataset.y;
+    const hasVisible = Array.from(cell.querySelectorAll('img'))
+        .some(img => !img.classList.contains('hide'));
+    if (hasVisible) {
+        cell.querySelector('.cell-mathBehind').classList.add('visible');
+        infoCalc.textContent  = `(${x} + ${y}) / 3 = ${Math.floor((x+y)/3)} R ${(x+y)%3}`;
+        infoCalc2.textContent = `Remainder = ${(x+y)%3}`;
+    }
+}
+function onCellLeave(e) {
+    e.currentTarget.querySelector('.cell-mathBehind').classList.remove('visible');
+}
+
+// ── Key handling ──────────────────────────────────────────────────────────────
+document.addEventListener('keydown', function(e) {
+    const key = e.key.toLowerCase();
+    if (!(key in KEY_TO_REM)) return;
+
+    const rem  = KEY_TO_REM[key];
+    const slot = KEY_TO_SLOT[key];
+
+    // Toggle: if this slot is already visible, hide all; otherwise show this slot
+    const alreadyVisible = (visibleSlot[rem] === slot);
+    visibleSlot[rem] = alreadyVisible ? -1 : slot;
+
+    // Update every cell that has this remainder
+    document.querySelectorAll(`.game-cell[data-rem="${rem}"] img[data-rem="${rem}"]`)
+        .forEach(img => {
+            const s = +img.dataset.slot;
+            img.classList.toggle('hide', s !== visibleSlot[rem]);
+        });
+});
+
+// ── Grid-size control ─────────────────────────────────────────────────────────
+function updateSizeLabel() {
+    const label = document.getElementById('size-label');
+    if (label) label.textContent = `${gridSize} × ${gridSize}`;
+}
+
+document.getElementById('size-down').addEventListener('click', () => {
+    if (gridSize > 4) buildGrid(gridSize - 1);
+});
+document.getElementById('size-up').addEventListener('click', () => {
+    if (gridSize < 15) buildGrid(gridSize + 1);
+});
+
+// ── Grid line colour ──────────────────────────────────────────────────────────
+let currentGridColor = '#cccccc';
+
+function applyGridColor(color) {
+    currentGridColor = color;
+    const game = document.querySelector('.game');
+    game.style.borderColor = color;
+    document.querySelectorAll('.game-cell').forEach(c => c.style.borderColor = color);
+}
+
+document.querySelectorAll('.swatch').forEach(swatch => {
     swatch.addEventListener('click', () => {
-        swatches.forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
         swatch.classList.add('active');
         const color = swatch.dataset.color;
-        customColor.value = color;
-        setGridLineColor(color);
+        document.getElementById('custom-color').value = color;
+        applyGridColor(color);
+    });
+});
+document.getElementById('custom-color').addEventListener('input', e => {
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    applyGridColor(e.target.value);
+});
+
+// ── Download ──────────────────────────────────────────────────────────────────
+document.getElementById('download-btn').addEventListener('click', () => {
+    html2canvas(document.querySelector('.game')).then(canvas => {
+        const a = document.createElement('a');
+        a.download = 'add-pattern.png';
+        a.href = canvas.toDataURL('image/png');
+        a.click();
     });
 });
 
-customColor.addEventListener('input', () => {
-    swatches.forEach(s => s.classList.remove('active'));
-    setGridLineColor(customColor.value);
-});
-
+// ── Init ──────────────────────────────────────────────────────────────────────
+buildGrid(6);
 

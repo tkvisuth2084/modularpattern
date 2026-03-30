@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="369f2c18-0c53-4072-80a9-555243b110e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/distance/distance-camera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addition/grid-size.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/distance/grid-size.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multiplication/grid-size.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multiplication/mul-camera.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addition/add-camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/addition/add-camera.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addition/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/addition/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addition/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/addition/add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/distance/distance-camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/distance/distance-camera.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/distance/distance.html" beforeDir="false" afterPath="$PROJECT_DIR$/distance/distance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/distance/distance.js" beforeDir="false" afterPath="$PROJECT_DIR$/distance/distance.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/multiplication/mul.html" beforeDir="false" afterPath="$PROJECT_DIR$/multiplication/mul.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/multiplication/mul.js" beforeDir="false" afterPath="$PROJECT_DIR$/multiplication/mul.js" afterDir="false" />
     </list>
@@ -17,6 +23,10 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="47" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -30,6 +40,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -42,8 +56,11 @@
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;JavaScript Debug.distance.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Node.js.distance.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.grid-size.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -52,7 +69,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/tktangkwaok/Desktop/AR484/experiment/week1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tktangkwaok/Desktop/AR484/experiment/week1/addition&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -64,6 +81,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/addition" />
+      <recent name="$PROJECT_DIR$/distance" />
+      <recent name="$PROJECT_DIR$/multiplication" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -97,7 +119,10 @@
       <workItem from="1772216378012" duration="9000" />
       <workItem from="1772418963078" duration="333000" />
       <workItem from="1772466316233" duration="2898000" />
-      <workItem from="1772552204711" duration="4358000" />
+      <workItem from="1772552204711" duration="7642000" />
+      <workItem from="1774300335576" duration="250000" />
+      <workItem from="1774759013488" duration="3039000" />
+      <workItem from="1774815194959" duration="6498000" />
     </task>
     <servers />
   </component>
