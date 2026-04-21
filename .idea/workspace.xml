@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="369f2c18-0c53-4072-80a9-555243b110e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/addition/grid-size.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/distance/grid-size.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/multiplication/grid-size.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/multiplication/mul-camera.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addition/add-camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/addition/add-camera.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addition/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/addition/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addition/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/addition/add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/distance/distance-camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/distance/distance-camera.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/distance/distance.html" beforeDir="false" afterPath="$PROJECT_DIR$/distance/distance.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/distance/distance.js" beforeDir="false" afterPath="$PROJECT_DIR$/distance/distance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiplication/mul.html" beforeDir="false" afterPath="$PROJECT_DIR$/multiplication/mul.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiplication/mul.js" beforeDir="false" afterPath="$PROJECT_DIR$/multiplication/mul.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +68,13 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecapSpentCounter">
+    <option name="endsOfQuotaMs" value="1778227213419" />
+    <option name="spentUsd" value="0.002901" />
+  </component>
+  <component name="RecapUselessUpdatesCounter">
+    <option name="suspendCountdown" value="7" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/addition" />
@@ -122,7 +117,12 @@
       <workItem from="1772552204711" duration="7642000" />
       <workItem from="1774300335576" duration="250000" />
       <workItem from="1774759013488" duration="3039000" />
-      <workItem from="1774815194959" duration="6498000" />
+      <workItem from="1774815194959" duration="6595000" />
+      <workItem from="1774830624470" duration="612000" />
+      <workItem from="1774831638045" duration="1806000" />
+      <workItem from="1774840835407" duration="1684000" />
+      <workItem from="1776102762069" duration="616000" />
+      <workItem from="1776194970960" duration="3000" />
     </task>
     <servers />
   </component>
