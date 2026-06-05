@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="369f2c18-0c53-4072-80a9-555243b110e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addition/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/addition/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addition/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/addition/add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/distance/distance.html" beforeDir="false" afterPath="$PROJECT_DIR$/distance/distance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/distance/distance.js" beforeDir="false" afterPath="$PROJECT_DIR$/distance/distance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiplication/mul.html" beforeDir="false" afterPath="$PROJECT_DIR$/multiplication/mul.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiplication/mul.js" beforeDir="false" afterPath="$PROJECT_DIR$/multiplication/mul.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="47" />
+    <option name="cachedIndexableFilesCount" value="59" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -28,6 +34,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;tkvisuth2084&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:tkvisuth2084/modularpattern.git&quot;,
+    &quot;accountId&quot;: &quot;dbebbccd-5fdf-495e-977e-1c2f7b3de51a&quot;
+  }
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -46,6 +64,7 @@
     &quot;JavaScript Debug.distance.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.add.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.distance.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.grid-size.js.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
@@ -70,10 +89,10 @@
 }</component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1778227213419" />
-    <option name="spentUsd" value="0.002901" />
+    <option name="spentUsd" value="0.020572102" />
   </component>
   <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="7" />
+    <option name="suspendCountdown" value="1" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -123,21 +142,26 @@
       <workItem from="1774840835407" duration="1684000" />
       <workItem from="1776102762069" duration="616000" />
       <workItem from="1776194970960" duration="3000" />
+      <workItem from="1776797684817" duration="257000" />
+      <workItem from="1776909918468" duration="1656000" />
+      <workItem from="1776959258026" duration="167000" />
+      <workItem from="1776960749876" duration="1499000" />
+      <workItem from="1776962408559" duration="1028000" />
+      <workItem from="1776964423603" duration="484000" />
+      <workItem from="1776973503136" duration="1710000" />
+      <workItem from="1777141601417" duration="1961000" />
+      <workItem from="1777144030528" duration="3641000" />
+      <workItem from="1777223075655" duration="1911000" />
+      <workItem from="1777226028512" duration="1319000" />
+      <workItem from="1777329255951" duration="82000" />
+      <workItem from="1777570842205" duration="1709000" />
+      <workItem from="1777575887016" duration="1834000" />
+      <workItem from="1777656098470" duration="247000" />
+      <workItem from="1777669358922" duration="3425000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/distance/distance.js</url>
-          <line>1</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
